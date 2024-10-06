@@ -10,7 +10,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
-#React app deployment
+# React app deployment
 
 In the project directory, you can run:
 
