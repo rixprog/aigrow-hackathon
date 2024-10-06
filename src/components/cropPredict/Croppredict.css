@@ -1,0 +1,22 @@
+.centered-input {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .centered-input .form-group {
+    width: 100%; /* Optional: Adjust width as needed */
+  }
+h2{
+    text-align: center;
+    margin-top:2rem;
+}  
+.cropinputform{
+    margin-top:2rem;
+    font-weight: bold;
+}
+.centered-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px; /* Adjust spacing as needed */
+  }

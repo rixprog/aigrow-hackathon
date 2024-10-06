@@ -1,0 +1,132 @@
+/* SoilProperties.css */
+
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #f3f5f9;
+  }
+  
+  /* Container */
+  .soil-container {
+    padding: 20px;
+  }
+  
+  /* Search Card */
+  .search-card {
+    width: 100%;
+    max-width: 600px;
+    border: none;
+    border-radius: 15px;
+    background: #ffffff;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .search-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .search-card .form-control {
+    font-size: 1rem;
+  }
+  
+  /* Submit Button */
+  .submit-button {
+    background-color: #6afc8d;
+    border: none;
+    padding: 10px 30px;
+    font-size: 1rem;
+    border-radius: 50px;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .submit-button:hover {
+    background-color: #5be07a;
+    transform: scale(1.05);
+  }
+  
+  .submit-button:focus {
+    box-shadow: none;
+  }
+  
+  /* Cloud Pattern */
+  .cloud-pattern {
+    font-size: 1.1rem;
+    color: #6afc8d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Soil Properties Card */
+  .soil-properties-card {
+    width: 100%;
+    max-width: 600px;
+    border: none;
+    border-radius: 15px;
+    background: #ffffff;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .soil-properties-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .soil-properties-card .card-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #6c9d31; /* Secondary Accent Color */
+  }
+  
+  .soil-properties-card .label {
+    font-weight: 600;
+    color: #6c9d31; /* Secondary Accent Color */
+  }
+  
+  .soil-properties-card .value {
+    font-size: 1rem;
+    color: #333333;
+  }
+  
+  /* Input Group */
+  .input-group-text {
+    background-color: #6afc8d; /* Primary Accent Color */
+    border: none;
+  }
+  
+  .form-control:focus {
+    box-shadow: none;
+    border-color: #6afc8d;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 576px) {
+    .search-card, .soil-properties-card {
+      max-width: 90%;
+    }
+  
+    .cloud-pattern {
+      margin-top: 10px;
+    }
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .search-card, .soil-properties-card {
+    animation: fadeIn 0.5s ease-out;
+  }
+
+h3{
+    text-align: center;
+}
+
+.circleprogress{
+    display: flex;
+    flex-direction: row;
+}
