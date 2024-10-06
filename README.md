@@ -1,4 +1,7 @@
-# Getting Started with Create React App
+# Getting Started with Create React and Flask app
+
+`cd server`
+`python main.py`
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
