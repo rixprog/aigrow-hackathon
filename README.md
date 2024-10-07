@@ -40,8 +40,10 @@ Our AI-Grow web app offers the following features:
 *Screenshot showing farm monitoring.*
 
 ## Project Links
-- **Project Presentation**: [Link to PPT](https://example.com/presentation)
-- **Demo Video**: [Link to Demo](https://example.com/demo-video)
+
+- **Project Presentation**: [Link to PPT](https://docs.google.com/presentation/d/1KU-Zdf4DM-Ih8bYnOrzVJoXL-8Zc4AZX/edit?amp;ouid=105557021676572344667&amp;rtpof=true&amp;sd=true#slide=id.p1)
+
+- **Demo Video**: [Link to Demo](https://youtube.com/watch?v=8bReN3bylho&feature=shared)
 
 ## Team
 This project was created by **Team Yukti** for the NASA Space Apps Challenge 2024.
