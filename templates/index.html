@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmer Bot</title>
+    <link rel="stylesheet" type="text/css" href="chatbot.css"/>
+    <style>
+        /* Global Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e5f0eb; /* Light gray background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('https://example.com/your-background-image.jpg'); /* Optional background image */
+            background-size: cover; /* Cover the entire background */
+        }
+        
+        /* Chatbox Styles */
+        #chatbox {
+            max-width: 400px;
+            width: 100%;
+            margin: 20px;
+            padding: 20px;
+            background-color: #ffffff; /* White background for chatbox */
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        /* Messages Styles */
+        #messages {
+            padding: 10px;
+            overflow-y: auto;
+            height: 300px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #f9f9f9; /* Light gray background for messages */
+            margin-bottom: 10px;
+        }
+        
+        #messages div {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 10px;
+            max-width: 75%;
+        }
+        
+        #messages div.you {
+            background-color: #cfe9ff; /* Light blue background for user messages */
+            align-self: flex-end;
+            margin-left: auto; /* Align user messages to the right */
+        }
+        
+        #messages div.bot {
+            background-color: #ffe4b5; /* Light yellow background for bot responses */
+            align-self: flex-start;
+            margin-right: auto; /* Align bot messages to the left */
+        }
+        
+        /* User Input Styles */
+        #user-input {
+            width: calc(100% - 90px); /* Adjust width for the button */
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        
+        #user-input:focus {
+            border-color: #aaa;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            outline: none; /* Remove default outline */
+        }
+        
+        /* Send Button Styles */
+        .btn {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-left: 10px; /* Space between input and button */
+        }
+        
+        .btn:hover {
+            background-color: #3e8e41;
+        }
+        
+        /* Flexbox Layout for Chatbox */
+        #chatbox {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        #messages {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Tablet-like Look */
+        @media only screen and (max-width: 768px) {
+            #chatbox {
+                width: 90%;
+                margin: 20px auto;
+            }
+            #messages {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="chatbox">
+        <h1>Farmer Bot</h1>
+        <div id="messages"></div>
+        <div style="display: flex;">
+            <input type="text" id="user-input" placeholder="Ask a farming question..." />
+            <button class="btn" onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        function sendMessage() {
+            const inputField = document.getElementById('user-input');
+            const question = inputField.value;
+            if (!question) return;
+
+            const messagesDiv = document.getElementById('messages');
+            const timestamp = new Date().toLocaleTimeString();
+
+            // Display the user message with a timestamp
+            messagesDiv.innerHTML += `<div class="you">You: ${question} <span style="font-size: 0.8em; color: gray;">(${timestamp})</span></div>`;
+            inputField.value = '';
+
+            // Send the question to the server
+            fetch('/ask', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ question }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                const botTimestamp = new Date().toLocaleTimeString();
+                // Display the bot's response with a timestamp
+                messagesDiv.innerHTML += `<div class="bot">Farmer Bot: ${data.response} <span style="font-size: 0.8em; color: gray;">(${botTimestamp})</span></div>`;
+                messagesDiv.scrollTop = messagesDiv.scrollHeight;  // Scroll to the bottom
+            })
+            .catch(error => {
+                messagesDiv.innerHTML += `<div>Error: ${error.message}</div>`;
+            });
+        }
+    </script>
+</body>
+</html>
