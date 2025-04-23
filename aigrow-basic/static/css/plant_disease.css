@@ -1,0 +1,442 @@
+/* Plant Disease Detection Page Styles */
+
+/* Import base styles (if not using a shared stylesheet) */
+:root {
+    /* Color Palette */
+    --primary-color: #4caf50;     /* Green */
+    --primary-dark: #388e3c;      /* Darker Green */
+    --primary-light: #81c784;     /* Lighter Green */
+    --secondary-color: #ff9800;   /* Orange */
+    --secondary-dark: #f57c00;    /* Darker Orange */
+    --secondary-light: #ffb74d;   /* Lighter Orange */
+    --accent-color: #2196f3;      /* Blue */
+    --text-dark: #333333;         /* Dark Grey for Text */
+    --text-light: #ffffff;        /* White for Text on Dark Backgrounds */
+    --background-light: #f5f5f5;  /* Light Grey for Backgrounds */
+    --error-color: #f44336;       /* Red for Errors */
+    --success-color: #4caf50;     /* Green for Success Messages */
+    --warning-color: #ff9800;     /* Orange for Warnings */
+    --border-color: #e0e0e0;      /* Light Grey for Borders */
+    --border-radius: 8px;
+    /* Typography */
+    --font-family-primary: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    --font-family-headings: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    
+    /* Spacing */
+    --spacing-xs: 0.25rem;  /* 4px */
+    --spacing-sm: 0.5rem;   /* 8px */
+    --spacing-md: 1rem;     /* 16px */
+    --spacing-lg: 1.5rem;   /* 24px */
+    --spacing-xl: 2rem;     /* 32px */
+    
+    /* Border Radius */
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    
+    /* Box Shadows */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    --shadow-md: 0 3px 6px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.12);
+    --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.1);
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-medium: 0.3s ease;
+    --transition-slow: 0.5s ease;
+  }
+  
+  /* CSS Reset and Base Styles */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
+
+
+
+
+  body {
+    font-family: var(--font-family-primary);
+    color: var(--text-dark);
+    background-color: var(--background-light);
+    line-height: 1.6;
+  }
+  
+  /* Typography */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-headings);
+    margin-bottom: var(--spacing-md);
+    font-weight: 600;
+    line-height: 1.3;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    color: var(--primary-dark);
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  h3 {
+    font-size: 1.75rem;
+  }
+  
+  p {
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .lead {
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  /* Layout Components */
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+  }
+  
+  /* Header and Navigation */
+  .header {
+    background-color: var(--text-light);
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md) 0;
+  }
+  
+  .nav-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+  
+  .nav-menu {
+    display: flex;
+    list-style: none;
+  }
+  
+  .nav-item {
+    margin-left: var(--spacing-lg);
+  }
+  
+  .nav-link {
+    color: var(--text-dark);
+    font-weight: 500;
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+  
+  .nav-link:hover, .nav-link.active {
+    color: var(--primary-color);
+  }
+  
+  /* Buttons */
+  .btn {
+    display: inline-block;
+    font-weight: 500;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: var(--border-radius-sm);
+    transition: all var(--transition-fast);
+    cursor: pointer;
+  }
+  
+  .btn-primary {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+  }
+  
+  .btn-primary:hover {
+    background-color: var(--primary-dark);
+  }
+  
+  .btn-secondary {
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+  }
+  
+  .btn-secondary:hover {
+    background-color: var(--secondary-dark);
+  }
+  
+  .btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  /* Plant Disease Detection Specific Styles */
+  .disease-detection {
+    padding: var(--spacing-xl) 0;
+  }
+  
+  .upload-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+  }
+  
+  .image-upload {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  .upload-area {
+    width: 100%;
+    height: 300px;
+    border: 2px dashed var(--border-color);
+    border-radius: var(--border-radius-md);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    transition: border-color var(--transition-medium);
+    background-color: var(--text-light);
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .upload-area:hover {
+    border-color: var(--primary-color);
+  }
+  
+  .upload-area.dragover {
+    background-color: rgba(76, 175, 80, 0.1);
+    border-color: var(--primary-color);
+  }
+  
+  .upload-instructions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--text-dark);
+    text-align: center;
+    padding: var(--spacing-md);
+  }
+  
+  .upload-instructions svg {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .upload-instructions p {
+    margin-bottom: 0;
+  }
+  
+  .upload-instructions span {
+    color: var(--accent-color);
+    cursor: pointer;
+  }
+  
+  .preview-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .upload-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+  }
+  
+  .detection-results {
+    flex: 1;
+    min-width: 300px;
+    background-color: var(--text-light);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+    padding: var(--spacing-lg);
+    min-height: 300px;
+  }
+  
+  .results-placeholder {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    text-align: center;
+  }
+  
+  .result-image-container {
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+  }
+  
+  #result-image {
+    max-width: 100%;
+    max-height: 300px;
+    border-radius: var(--border-radius-sm);
+  }
+  
+  .detected-diseases {
+    margin-top: var(--spacing-md);
+  }
+  
+  .disease-item {
+    margin-bottom: var(--spacing-md);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+    background-color: var(--background-light);
+  }
+  
+  .disease-name {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .disease-name h4 {
+    margin-bottom: 0;
+    color: var(--primary-dark);
+  }
+  
+  .confidence {
+    display: inline-block;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background-color: var(--primary-light);
+    color: var(--text-light);
+    border-radius: var(--border-radius-sm);
+    font-size: 0.875rem;
+  }
+  
+  .treatment h5 {
+    margin-top: var(--spacing-sm);
+    margin-bottom: var(--spacing-xs);
+    color: var(--secondary-dark);
+    font-size: 1rem;
+  }
+  
+  /* Loading indicator */
+  .loading-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: var(--spacing-lg) 0;
+  }
+  
+  .spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid var(--background-light);
+    border-top: 5px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: var(--spacing-md);
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* How it works section */
+  .steps-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-lg);
+    margin: var(--spacing-lg) 0;
+  }
+  
+  .step {
+    flex: 1;
+    min-width: 250px;
+    background-color: var(--text-light);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    text-align: center;
+  }
+  
+  .step-number {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin: 0 auto var(--spacing-md);
+  }
+  
+  /* Tips section */
+  .tips-list {
+    margin-left: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .tips-list li {
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  /* Footer */
+  .footer {
+    background-color: var(--primary-dark);
+    color: var(--text-light);
+    padding: var(--spacing-lg) 0;
+    margin-top: var(--spacing-xl);
+  }
+  
+  /* Utility classes */
+  .hidden {
+    display: none !important;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .upload-container {
+      flex-direction: column;
+    }
+    
+    .nav {
+      flex-direction: column;
+    }
+    
+    .nav-menu {
+      margin-top: var(--spacing-md);
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .nav-item {
+      margin: 0 var(--spacing-sm);
+      margin-bottom: var(--spacing-sm);
+    }
+  }

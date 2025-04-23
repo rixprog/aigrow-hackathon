@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIGrow - Smart Farming Solutions</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">AI GROW</div>
+            <ul>
+                <li><a href="crop-recommendation">Crop Recommendation</a></li>
+                <li><a href="plant-disease">Plant Disease Detection</a></li>
+                <li><a href="weather">Weather</a></li>
+                <li><a href="chatbot">Farming Assistant</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Empowering Farmers with AI-Driven Insights</h1>
+                <p>Revolutionize your farming with cutting-edge technology and data-driven solutions</p>
+                <a href="#features" class="cta-button">Explore Features</a>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <h2>About AIGrow</h2>
+            <p>AIGrow is a comprehensive agricultural technology platform designed to support farmers with intelligent, data-driven tools. We leverage artificial intelligence to provide precise crop recommendations, disease detection, weather forecasting, and expert farming assistance.</p>
+        </section>
+
+        <section id="features" class="features-section">
+            <h2>Our Key Services</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>Crop Recommendation</h3>
+                    <p>Get personalized crop suggestions based on your soil and environmental conditions.</p>
+                    <a href="crop-recommendation" class="feature-link">Learn More</a>
+                </div>
+                <div class="feature-card">
+                  
+                    <h3>Plant Disease Detection</h3>
+                    <p>Quickly identify and treat plant diseases using advanced image recognition.</p>
+                    <a href="plant-disease" class="feature-link">Learn More</a>
+                </div>
+                <div class="feature-card">
+                
+                    <h3>Weather Forecast</h3>
+                    <p>Access accurate, location-specific weather information for better planning.</p>
+                    <a href="weather" class="feature-link">Learn More</a>
+                </div>
+                <div class="feature-card">
+                    
+                    <h3>Farming Assistant</h3>
+                    <p>Get expert advice on crops, techniques, diseases, and agricultural equipment.</p>
+                    <a href="chatbot" class="feature-link">Learn More</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>© 2025 AI GROW. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#" class="social-icon">Facebook</a>
+                <a href="#" class="social-icon">Twitter</a>
+                <a href="#" class="social-icon">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/chatbot.js') }}"></script>
+</body>
+</html>

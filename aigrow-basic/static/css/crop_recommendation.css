@@ -1,0 +1,244 @@
+:root {
+    --primary-green: #4CAF50;
+    --secondary-green: #66BB6A;
+    --background-light: #F5F5F5;
+    --text-color: #333;
+    --border-color: #E0E0E0;
+    --input-background: white;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-light);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-green);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+nav ul li a.active,
+nav ul li a:hover {
+    color: var(--primary-green);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+h1 {
+    text-align: center;
+    color: var(--primary-green);
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.recommendation-container {
+    display: flex;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.input-section {
+    flex: 1;
+    padding: 30px;
+    background-color: white;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--primary-green);
+    font-weight: 500;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+    border-color: var(--primary-green);
+}
+
+.input-group input::placeholder {
+    color: #999;
+}
+
+.button-group {
+    margin-top: 20px;
+}
+
+.detect-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary-green);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.detect-btn:hover {
+    background-color: var(--secondary-green);
+}
+
+.result-section {
+    flex: 1;
+    background-color: var(--background-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+
+.result-card {
+    width: 100%;
+    min-height: 300px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.result-placeholder {
+    text-align: center;
+    color: #999;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.result-placeholder svg {
+    width: 64px;
+    height: 64px;
+    stroke: var(--primary-green);
+    margin-bottom: 15px;
+    opacity: 0.6;
+}
+
+.result-placeholder p {
+    font-size: 1rem;
+    color: #666;
+}
+
+.result-content {
+    width: 100%;
+    padding: 20px;
+}
+
+.result-content h2 {
+    color: var(--primary-green);
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--primary-green);
+    padding-bottom: 10px;
+}
+
+.result-content h3 {
+    color: var(--secondary-green);
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.result-content p {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.result-success {
+    border-color: var(--primary-green);
+    box-shadow: 0 4px 10px rgba(76, 175, 80, 0.2);
+}
+
+.result-error {
+    border-color: #f44336;
+    color: #f44336;
+    box-shadow: 0 4px 10px rgba(244, 67, 54, 0.2);
+}
+
+.recommended-crop .crop-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-green);
+    margin-bottom: 15px;
+}
+
+.condition-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+@media (max-width: 768px) {
+    .recommendation-container {
+        flex-direction: column;
+    }
+
+    .condition-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.input-group input.invalid {
+    border-color: #f44336;
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}

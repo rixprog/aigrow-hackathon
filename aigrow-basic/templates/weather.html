@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast - Farmer's Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/weather.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="/" class="nav-logo">AI GROW</a>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="/crop-recommendation" class="nav-link">Crop Recommendation</a></li>
+                    <li class="nav-item"><a href="/plant-disease" class="nav-link">Plant Disease Detection</a></li>
+                    <li class="nav-item"><a href="/weather" class="nav-link active">Weather</a></li>
+                    <li class="nav-item"><a href="/chatbot" class="nav-link">Farming Assistant</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="weather-section">
+            <h1>Weather Forecast for Farmers</h1>
+            <p class="lead">Get accurate weather information to plan your farming activities.</p>
+            
+            <div class="weather-container">
+                <div class="search-container">
+                    <form method="POST" class="weather-form">
+                        <div class="form-group">
+                            <label for="city">Enter City:</label>
+                            <input type="text" id="city" name="city" placeholder="e.g., New York, London, Mumbai" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Get Weather</button>
+                    </form>
+                </div>
+
+                <div class="loading-indicator hidden" id="loading-indicator">
+                    <div class="spinner"></div>
+                    <p>Fetching weather data...</p>
+                </div>
+
+                <div class="error-message hidden" id="error-message"></div>
+
+                {% if weather %}
+                <div class="weather-result" id="weather-result">
+                    <h2>Weather in {{ weather.city }}, {{ weather.country }}</h2>
+                    <div class="weather-details">
+                        <div class="weather-icon-container" id="weather-icon-container">
+                            <!-- Weather icon will be inserted here via JavaScript -->
+                        </div>
+                        <div class="weather-data">
+                            <div class="weather-info">
+                                <p><strong>Temperature:</strong> <span>{{ weather.temperature }}°C</span></p>
+                                <p><strong>Feels Like:</strong> <span>{{ weather.feels_like }}°C</span></p>
+                                <p><strong>Humidity:</strong> <span>{{ weather.humidity }}%</span></p>
+                                <p><strong>Wind Speed:</strong> <span>{{ weather.wind_speed }} m/s</span></p>
+                                <p><strong>Condition:</strong> <span>{{ weather.condition }}</span></p>
+                                <p><strong>Description:</strong> <span>{{ weather.description }}</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <div class="placeholder-message" id="placeholder-message">
+                    <p>Enter a city name to get weather information</p>
+                </div>
+                {% endif %}
+            </div>
+        </section>
+
+        <section class="farming-tips-section" id="farming-tips-section">
+            <h2>Farming Tips Based on Weather</h2>
+            <div class="tips-container" id="tips-container">
+                {% if weather %}
+                <!-- Tips will be populated by JavaScript -->
+                {% else %}
+                <p class="tip-placeholder">Enter a city to get weather-specific farming tips.</p>
+                {% endif %}
+            </div>
+        </section>
+
+        <section class="how-it-works">
+            <h2>How to Use Weather Data for Farming</h2>
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Check Forecast</h3>
+                    <p>Regularly check weather forecasts for your location.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Plan Activities</h3>
+                    <p>Adjust your farming activities based on upcoming weather conditions.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Prepare Resources</h3>
+                    <p>Prepare necessary resources for expected weather changes.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 AI GROW. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/weather.js') }}"></script>
+</body>
+</html>
